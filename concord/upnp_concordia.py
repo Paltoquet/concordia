@@ -10,6 +10,7 @@ from mods.services.ph_service import Ph_Service
 from mods.services.pump_service import Pump_Service
 from mods.services.heater_service import Heater_Service
 from mods.services.potar_service import Potar_Service
+# from mods.services.valve_service import Valve_Service
 
 import logging, time, grovepi
 
@@ -26,6 +27,7 @@ class Concordia(Device):
         self.thermo_service = Thermo_Service()
         self.ph_service = Ph_Service()
         self.pump_service = Pump_Service()
+        # self.valve_service = Valve_Service()
         self.heater_service = Heater_Service()
         self.potar_service = Potar_Service()
 
@@ -34,6 +36,7 @@ class Concordia(Device):
             self.thermo_service,
             self.ph_service,
             self.pump_service,
+            # self.valve_service,
             self.heater_service,
             self.potar_service
         ]
