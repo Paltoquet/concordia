@@ -7,7 +7,7 @@ from pyupnp.services import register_action, Service, ServiceActionArgument, Ser
 from pyupnp.ssdp import SSDP
 from pyupnp.upnp import UPnP
 
-PUMP_RELAY = 2
+PUMP_RELAY = 5
 PUMP_TIME_MAX = 1
 
 class Pump_Service(Service):
@@ -37,10 +37,10 @@ class Pump_Service(Service):
 
     @register_action('Turn_On_Pump')
     def Turn_On_Pump(self):
-        grovepi.digitalWrite(PUMP_RELAY, 1)
+        # grovepi.digitalWrite(PUMP_RELAY, 1)
         self.Pump_on = 1
         time.sleep(PUMP_TIME_MAX)
-        grovepi.digitalWrite(PUMP_RELAY, 0)
+        # grovepi.digitalWrite(PUMP_RELAY, 0)
         self.Pump_on = 0
 
     @register_action('Turn_Off_Pump')

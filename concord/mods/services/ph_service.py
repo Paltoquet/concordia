@@ -7,7 +7,7 @@ from pyupnp.services import register_action, Service, ServiceActionArgument, Ser
 from pyupnp.ssdp import SSDP
 from pyupnp.upnp import UPnP
 
-sensor = 2
+sensor = 0
 def read_ph():
     sensor_value = grovepi.analogRead(sensor)
     # Calculate PH
@@ -38,6 +38,7 @@ class Ph_Service(Service):
 
     @register_action('GetPh')
     def getState(self):
+        self.ph = int(self.ph)
         return {
             'Ph' : str(self.ph)
         }
@@ -57,6 +58,7 @@ class Ph_Service(Service):
         
     def startListening(self):
         self.state=True
+        self.ph = 0
         self.thread = threading.Thread(target=Ph_Service.listen_to_ph_sensor, args = (self,0))
         self.thread.daemon = True
         self.thread.start();

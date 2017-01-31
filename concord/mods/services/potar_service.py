@@ -12,6 +12,8 @@ adc_ref = 5
 full_angle = 300
 
 sensor = 1
+
+
 def read_potar():
     sensor_value = grovepi.analogRead(sensor)
     voltage = round((float)(sensor_value) * adc_ref / 1023, 2)

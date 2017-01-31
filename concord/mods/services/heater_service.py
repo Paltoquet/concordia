@@ -7,7 +7,7 @@ from pyupnp.services import register_action, Service, ServiceActionArgument, Ser
 from pyupnp.ssdp import SSDP
 from pyupnp.upnp import UPnP
 
-relay = 4
+relay = 8
 
 class Heater_Service(Service):
     version = (1, 0)
