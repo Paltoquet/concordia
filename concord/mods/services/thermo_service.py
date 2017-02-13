@@ -62,7 +62,7 @@ class Thermo_Service(Service):
         while True:
             try:
                 self.temp = read()
-                print('Temp value = ' + self.temp)
+                print('{}] Temp value  =  {}'.format(time.strftime("%H:%M:%S"), self.temp))
                 time.sleep(3)
             except IOError as e:
                 print "I/O error({0}): {1}".format(e.errno, e.strerror)

@@ -48,7 +48,7 @@ class Ph_Service(Service):
         while True:
             try:
                 self.ph = read_ph()
-                print('Ph value = ' + self.ph)
+                print('{}] Ph value    =  {}'.format(time.strftime("%H:%M:%S"), self.ph))
                 time.sleep(3)
             except IOError as e:
                 print "I/O error({0}): {1}".format(e.errno, e.strerror)

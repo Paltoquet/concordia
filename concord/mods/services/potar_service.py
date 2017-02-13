@@ -51,7 +51,7 @@ class Potar_Service(Service):
         while True:
             try:
                 self.potar = read_potar()
-                print('Potar value = ' + self.potar)
+                print('{}] Potar value =  {}'.format(time.strftime("%H:%M:%S"), self.potar))
                 time.sleep(3)
             except IOError as e:
                 print "I/O error({0}): {1}".format(e.errno, e.strerror)

@@ -39,12 +39,15 @@ class Pump_Service(Service):
     def Turn_On_Pump(self):
         grovepi.digitalWrite(PUMP_RELAY, 1)
         self.Pump_on = 1
+        """
         time.sleep(PUMP_TIME_MAX)
         grovepi.digitalWrite(PUMP_RELAY, 0)
         self.Pump_on = 0
+        """
 
     @register_action('Turn_Off_Pump')
     def Turn_Off_Pump(self):
+        print("a\na\na\na\na")
         grovepi.digitalWrite(PUMP_RELAY, 0)
         self.Pump_on = 0
 
