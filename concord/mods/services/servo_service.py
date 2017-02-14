@@ -22,7 +22,11 @@ class Servo_Service(Service):
     serviceId = "urn:upnp-org:serviceId:ConcordiaServoService"
 
     actions = {
-        'Turn_On_Servo': [
+        'Plus_Servo': [
+            ServiceActionArgument('servo_is_on', 'out', 'Servo_on')
+        ]
+        ,
+        'Moins_Servo': [
             ServiceActionArgument('servo_is_on', 'out', 'Servo_on')
         ]
         ,
@@ -38,8 +42,13 @@ class Servo_Service(Service):
         
     Servo_on = EventProperty('Servo_on')
 
-    @register_action('Turn_On_Servo')
-    def Turn_On_Servo(self):
+    @register_action('Moins_Servo')
+    def Moins_Servo(self):
+        write("\n2=+10\n")
+        self.Servo_on = 1
+
+    @register_action('Plus_Servo')
+    def Plus_Servo(self):
         write("\n2=-10\n")
         self.Servo_on = 1
         
